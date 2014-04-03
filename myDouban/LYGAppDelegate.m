@@ -9,6 +9,9 @@
 #import "LYGAppDelegate.h"
 
 #import "LYGViewController.h"
+#import "LYGSecondViewController.h"
+#import "LYGThirdViewController.h"
+#import "LYGFourthViewController.h"
 
 @implementation LYGAppDelegate
 
@@ -17,7 +20,25 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[LYGViewController alloc] initWithNibName:@"LYGViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    UINavigationController *fnv = [[UINavigationController alloc]initWithRootViewController:self.viewController];
+    fnv.title = @"Json";
+    LYGSecondViewController *svc = [[LYGSecondViewController alloc]init];
+    UINavigationController *snv = [[UINavigationController alloc]initWithRootViewController:svc];
+    snv.title = @"DataBase";
+    
+    LYGThirdViewController *tvc = [[LYGThirdViewController alloc]init];
+    UINavigationController *tnv = [[UINavigationController alloc]initWithRootViewController:tvc];
+    tnv.title = @"NSCoding";
+    
+    LYGFourthViewController *forvc = [[LYGFourthViewController alloc]init];
+    UINavigationController *fornv = [[UINavigationController alloc]initWithRootViewController:forvc];
+    fornv.title = @"tableViewController";
+    
+    UITabBarController * myTabbar = [[UITabBarController alloc]init];
+    
+    myTabbar.viewControllers = @[fnv,snv,tnv,fornv];
+    
+    self.window.rootViewController = myTabbar;
     [self.window makeKeyAndVisible];
     return YES;
 }

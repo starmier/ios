@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LYGViewController : UIViewController
-
+@interface LYGViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,NSURLConnectionDataDelegate>
+-(void)pushDetailViewController;
 @end
